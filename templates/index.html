@@ -13,9 +13,20 @@
                 <input type="text" name="guess" value=""><br>
                 <input type="submit" name="name" value="Submit Guess">
             </form><br>
-            {% if message %}
-                {{ message }}
+            {% if error %}
+                <p>{{ error }}</p>
             {% endif %}
+            {% if message %}
+                <p>{{ message }}{{session['guess_count']}}</p>
+            {% endif %}
+            <div class="reset">
+                <form action='/reset' method="post">
+                    Click below to reset<br>and play again.<br>
+                    <input type="submit" name="reset" value="reset / play again">
+                </form>
+            </div>
+            <br>{{ session['number']}}: left in for validation
+
         </div>
     </body>
 </html>
